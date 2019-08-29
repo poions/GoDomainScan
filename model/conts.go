@@ -9,33 +9,39 @@ const (
 	fpath = "conf/config.json"
 )
 
+//ClientConfiguration ：
 type ClientConfiguration struct {
-	ApiUserName string //ApiUserName : api account
-	ApiKey      string //ApiKey : api key
+	APIUserName string //ApiUserName : api account
+	APIKey      string //ApiKey : api key
 }
 
+//Config ：
 type Config struct {
 	Client ClientConfiguration
 }
 
-func LoadPerformUploadApiUserName() string {
-	DefJsonParse := NewJsonStruct()
+//LoadPerformUploadAPIUserName ：
+func LoadPerformUploadAPIUserName() string {
+	DefJSONParse := NewJSONStruct()
 	readConfig := Config{}
-	DefJsonParse.Load(fpath, &readConfig)
-	return readConfig.Client.ApiUserName
+	DefJSONParse.Load(fpath, &readConfig)
+	return readConfig.Client.APIUserName
 }
 
-func LoadPerformUploadApiKey() string {
-	DefJsonParse := NewJsonStruct()
+//LoadPerformUploadAPIKey ：
+func LoadPerformUploadAPIKey() string {
+	DefJSONParse := NewJSONStruct()
 	readConfig := Config{}
-	DefJsonParse.Load(fpath, &readConfig)
-	return readConfig.Client.ApiKey
+	DefJSONParse.Load(fpath, &readConfig)
+	return readConfig.Client.APIKey
 }
 
-type JsonStruct struct {
+//JSONStruct ：
+type JSONStruct struct {
 }
 
-func (jst *JsonStruct) Load(filename string, v interface{}) {
+//Load ：
+func (jst *JSONStruct) Load(filename string, v interface{}) {
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return
@@ -46,6 +52,7 @@ func (jst *JsonStruct) Load(filename string, v interface{}) {
 	}
 }
 
-func NewJsonStruct() *JsonStruct {
-	return &JsonStruct{}
+//NewJSONStruct ：
+func NewJSONStruct() *JSONStruct {
+	return &JSONStruct{}
 }
