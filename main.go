@@ -15,7 +15,7 @@ func main() {
 	for i := 0; i < len(os.Args); i++ {
 		switch {
 		case os.Args[i] == "-u":
-			model.GetAPIRequestResponseData(os.Args[i])
+			model.GetAPIRequestResponseData(os.Args[2])
 		case os.Args[i] == "-h":
 			fmt.Println("-h/--help \n-u main.go test.com \n-o main.go -u test.com -o /tmp/d.txt")
 		case os.Args[i] == "-o":
